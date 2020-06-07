@@ -1,4 +1,4 @@
-from abc import ABC
+from abc import ABC, abstractmethod
 from math import sqrt, e
 
 
@@ -8,11 +8,15 @@ class Function(ABC):
         self.y = y
         self.z = z
 
+    @abstractmethod
     def calculate(self):
         raise NotImplementedError
 
 
 class Type1(Function):
+
+    def do_something(self):
+        return self.x, self.y
 
     def calculate(self):
         return self.x ** 2 + sqrt(3 * (self.y ** 3))
